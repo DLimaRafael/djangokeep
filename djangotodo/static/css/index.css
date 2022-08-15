@@ -1,0 +1,109 @@
+:root {
+    --background: rgb(60, 59, 63);
+    --task-background: rgb(46, 44, 50);
+    --border-color: lightblue;
+    --delete-button-color: lightcoral;
+    --text-color: rgb(239, 246, 252);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    user-select: none;
+    margin: auto auto;
+    margin-bottom: 5vh;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 0 auto;
+}
+
+.actions {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.actions input {
+    margin: 5px;
+}
+
+#doneText {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#taskInput {
+    display: flex;
+    flex-direction: column;
+}
+
+#taskInput input {
+    margin-bottom: 2vh;
+}
+
+#taskInput input:focus {
+    outline: none;
+}
+
+#taskName {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--background);
+    border-bottom: solid 3px var(--border-color);
+    border-radius: 0;
+    width: 30vw;
+    font-size: 1.2rem;
+}
+
+#task {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--task-background);
+    border-radius: 5px;
+    width: 32vw;
+    word-wrap: break-word;
+    padding: 25px;
+    padding-bottom: 10px;
+}
+
+#task li {
+    list-style-type: none;
+    width: 100%;
+}
+
+.button {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--background);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.doneText {
+    text-align: center;
+    user-select: none;
+}
+
+#check {
+    padding:0;
+    background-color: var(--task-background);
+}
+
+#deleteButton {
+    padding: 0;
+    background-color: var(--task-background);
+}
