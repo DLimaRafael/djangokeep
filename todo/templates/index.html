@@ -12,7 +12,7 @@
     <div class='content'>
         <h1>Django To Do</h1>
         <form id="taskInput" action="/addTodoItem/" method = "post">{% csrf_token %}
-            <input id="taskName" type="text" name="content">
+            <textarea id="taskContent" columns=50 rows=5 placeholder="Your note here..." name="content"></textarea>
             <input class="button" type="submit" value="Add Task">
         </form> 
         <div class="list">
