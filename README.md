@@ -4,8 +4,8 @@ A simple note keeping app I made for studying Django and Python as a backend too
 
 ### What can it do?
 - Basic note taking
-  - Creating, deleting and archiving notes
-  - Image insertion
+  - Creating, deleting and archiving notes (WIP)
+  - Image insertion (WIP)
 
 ### How to run it
 1. Clone this repository
