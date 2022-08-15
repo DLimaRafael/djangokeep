@@ -5,7 +5,7 @@ from django.utils import timezone
 # Create your models here.
 class Task(models.Model):
     content = models.TextField(blank=True)
-    is_done = models.BooleanField(default=False)
+    is_archived = models.BooleanField(default=False)
 
     def __str__(self):
         name = getattr(self, 'content')

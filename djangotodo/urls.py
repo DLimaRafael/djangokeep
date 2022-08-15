@@ -22,7 +22,7 @@ urlpatterns = [
     path('', todo_list),
     ### ADDING TASK
     path('addTodoItem/', add_todo_view),
-    ### MARKING TASK AS DONE
+    ### MARKING TASK AS DONE (WIP)
     path('markAsDone/<int:i>/', mark_done),
     ### DELETING TASK
     path('deleteTodoItem/<int:i>/', delete_task),
