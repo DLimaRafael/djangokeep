@@ -1,8 +1,10 @@
 :root {
     --background: rgb(60, 59, 63);
     --task-background: rgb(46, 44, 50);
-    --border-color: rgb(179, 156, 67);
-    --delete-button-color: lightcoral;
+    --shadow-color: rgb(23, 23, 23);
+    --green: rgb(56, 165, 70);
+    --note-green: rgb(50, 133, 76);
+    --button-background: rgb(50, 133, 76);
     --text-color: rgb(239, 246, 252);
 }
 
@@ -13,10 +15,11 @@ body {
 }
 
 h1 {
-    font-size: 4em;
+    font-size: 2em;
     user-select: none;
-    margin: auto auto;
-    margin-bottom: 5vh;
+    margin-top: 0;
+    margin-bottom: 10vh;
+    color: var(--green)
 }
 
 .content {
@@ -30,8 +33,9 @@ h1 {
 
 .list {
     display: flex;
-    flex-wrap:wrap-reverse;
-    max-width: 45vw;
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    max-width: 55vw;
 }
 
 .actions {
@@ -42,8 +46,27 @@ h1 {
     justify-content: center;
 }
 
+.button {
+    border: none;
+    color: var(--text-color);
+    background-color: var(--background);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.doneText {
+    text-align: center;
+    user-select: none;
+}
+
 .actions input {
     margin: 5px;
+}
+
+#addButton {
+    background-color: var(--green);
+    min-width: 7vw;
+    align-self: flex-end;
 }
 
 #doneText {
@@ -65,55 +88,71 @@ h1 {
     border: none;
     color: var(--text-color);
     background-color: var(--background);
-    border-bottom: solid 3px var(--border-color);
+    border-bottom: solid 3px var(--green);
     border-radius: 0;
     width: 30vw;
-    font-size: 1.2rem;
+    font-size: 1rem;
     resize: none;
     margin-bottom: 1vh;
+    overflow: auto;
+    animation-duration: 500ms;
+    animation-delay: 50ms;
+    animation-fill-mode:both;
+    animation-timing-function: ease-in-out;
 }
 
 #taskContent:focus {
     outline: none;
+    animation-name: anm-grow-input;
+}
+
+@keyframes anm-grow-input {
+    from {
+        height: 1.2em;
+    }
+
+    to {
+        height: 12em;
+    }
 }
 
 #task {
     display: flex;
     flex-direction: column;
-    background-color: var(--task-background);
+    background-color: var(--note-green);
     border-radius: 5px;
-    max-width: 25vw;
-    max-height: 20vh;
+    max-width: 16vw;
+    max-height: 35vh;
     word-wrap: break-word;
-    padding: 25px;
     padding-bottom: 10px;
-    margin: 10px 10px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow-color) 1px 3px 10px;
+    overflow: hidden;
 }
 
-#task li {
-    list-style-type: none;
-    width: 100%;
+#task p {
+    white-space:pre-line;
+    margin: 0;
+    padding: 0;
 }
 
-.button {
-    border: none;
-    color: var(--text-color);
-    background-color: var(--background);
-    font-size: 1.2rem;
-    font-weight: 700;
+#taskText {
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
-.doneText {
-    text-align: center;
-    user-select: none;
+#task .button {
+    align-self: flex-end;
 }
 
 #check {
     padding:0;
-    background-color: var(--task-background);
+    background-color: var(--button-background);
 }
 
 #deleteButton {
     padding: 0;
-    background-color: var(--task-background);
+    background-color: var(--button-background);
 }
