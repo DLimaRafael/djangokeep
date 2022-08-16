@@ -11,20 +11,25 @@
 <body>
     <div class='content'>
         <h1>Django Keep</h1>
-        <form id="taskInput" action="/addTodoItem/" method = "post">{% csrf_token %}
-            <textarea id="taskContent" columns=50 rows=1 placeholder="Your note here..." name="content"></textarea>
-            <input id="addButton" class="button" type="submit" value="Add Note">
-        </form> 
+        <div class='input'>
+            <form id="taskForm" action="/addTodoItem/" method = "post">{% csrf_token %}
+                <div class="textWrapper">
+                    <textarea id="taskContent" columns=50 rows=1 placeholder="Your note here..." name="content"></textarea>
+                </div>
+                <div class='inputButtons'>
+                    <input id="addButton" class="button" type="submit" value="+">
+                </div>
+            </form> 
+        </div>
         <div class="list">
             {% for i in all_tasks %}
                 <div id="task">
-                        <span id="taskText"><p>{{i.content}}</p></span>
                     <div class="actions">
-                        
                         <form action="/deleteTodoItem/{{i.id}}/" method="post">{% csrf_token %}
-                            <input class="button" id="deleteButton" type="submit" value="Remove">
+                            <input class="button" id="deleteButton" type="submit" value="x">
                         </form>  
                     </div>
+                    <span id="taskText"><p>{{i.content}}</p></span>
                 </div>
             {% endfor %}
         </div>

@@ -3,9 +3,14 @@
     --task-background: rgb(46, 44, 50);
     --shadow-color: rgb(23, 23, 23);
     --green: rgb(56, 165, 70);
+    --light-green: rgb(228, 252, 230);
     --note-green: rgb(50, 133, 76);
     --button-background: rgb(50, 133, 76);
     --text-color: rgb(239, 246, 252);
+
+    --border-curve: 12px;
+    --button-curve: 10px;
+    --small-button-curve: 5px;
 }
 
 body {
@@ -31,23 +36,43 @@ h1 {
     margin: 0 auto;
 }
 
+.input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.input input:focus {
+    outline: none;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap-reverse;
     align-items: flex-end;
     max-width: 55vw;
+    margin-top: 5vh;
 }
 
 .actions {
-    margin: 0;
+    margin: -20px -20px 10px auto;
     padding: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.actions input {
+    font-size: 1.2em;
 }
 
 .button {
     border: none;
+    border-radius: var(--button-curve);
+    min-width: 30px;
+    min-height: 30px;
+    margin: 0;
     color: var(--text-color);
     background-color: var(--background);
     font-size: 1.2rem;
@@ -59,14 +84,17 @@ h1 {
     user-select: none;
 }
 
-.actions input {
-    margin: 5px;
+#taskForm {
+    display: flex;
 }
 
 #addButton {
-    background-color: var(--green);
-    min-width: 7vw;
-    align-self: flex-end;
+    background-color: white;
+    color: var(--green);
+    min-width: 30px;
+    min-height: 30px;
+    margin-left: 20px;
+    margin-top: 8px;
 }
 
 #doneText {
@@ -75,24 +103,15 @@ h1 {
     color: var(--text-color);
 }
 
-#taskInput {
-    display: flex;
-    flex-direction: column;
-}
-
-#taskInput input:focus {
-    outline: none;
-}
-
 #taskContent {
-    border: none;
+    border: var(--green) 2px solid;
     color: var(--text-color);
     background-color: var(--background);
-    border-bottom: solid 3px var(--green);
-    border-radius: 0;
+    border-radius: var(--border-curve);
     width: 30vw;
     font-size: 1rem;
     resize: none;
+    padding: 10px;
     margin-bottom: 1vh;
     overflow: auto;
     animation-duration: 500ms;
@@ -120,15 +139,19 @@ h1 {
     display: flex;
     flex-direction: column;
     background-color: var(--note-green);
-    border-radius: 5px;
+    border-radius: var(--border-curve);
     max-width: 16vw;
-    max-height: 35vh;
+    max-height: 34vh;
     word-wrap: break-word;
     padding-bottom: 10px;
     margin: 10px;
     padding: 20px;
     box-shadow: var(--shadow-color) 1px 3px 10px;
     overflow: hidden;
+}
+
+#task:hover #deleteButton {
+    opacity: 1;
 }
 
 #task p {
@@ -141,6 +164,7 @@ h1 {
     overflow: hidden;
     margin: 0;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 #task .button {
@@ -153,6 +177,10 @@ h1 {
 }
 
 #deleteButton {
+    opacity: 0;
+    border: white 2px solid;
+    background-color: white;
+    color: var(--note-green);
+    align-self: flex-end;
     padding: 0;
-    background-color: var(--button-background);
 }
