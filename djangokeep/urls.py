@@ -14,18 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
-from todo.views import todo_list, add_todo_view, delete_task, mark_done
+from todo.views import todo_list, add_note, delete_note, archive_note, arch_list
 
 urlpatterns = [
     ### HOME PAGE
     path('', todo_list),
-    ### ADDING TASK
-    path('addTodoItem/', add_todo_view),
-    ### MARKING TASK AS DONE (WIP)
-    path('markAsDone/<int:i>/', mark_done),
-    ### DELETING TASK
-    path('deleteTodoItem/<int:i>/', delete_task),
+    ### ARCHIVE
+    path('archive/', arch_list),
+    ### ADDING NOTE
+    path('addItem/', add_note),
+    ### ARCHIVING NOTE
+    path('archiveItem/<int:i>/', archive_note),
+    ### DELETING NOTE
+    path('deleteItem/<int:i>/', delete_note),
     ### ADMIN
     path('admin/', admin.site.urls),
 ]
+if settings.DEBUG:
+        urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

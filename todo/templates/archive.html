@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
-    <title>Django Keep</title>
+    <title>Django Keep - Archive</title>
 </head>
 <body>
     <div class='content'>
@@ -19,19 +19,14 @@
                 <input id="archSection" class="button" type="submit" value="Archive">
             </form>
         </div>
-        <div class='input'>
-            <form id="taskForm" action="/addItem/" method = "post">{% csrf_token %}
-                <div class="textWrapper">
-                    <textarea id="taskContent" columns=50 rows=1 placeholder="Your note here..." name="content"></textarea>
-                </div>
-                <div class='inputButtons'>
-                    <input id="addButton" class="button" type="submit" value="+">
-                </div>
-            </form> 
-        </div>
         <div class="list">
+            {% if not all_tasks %}
+                    <span id="emptyArchText">
+                        <h2>This Archive is empty!</h2>
+                    </span>
+                {% endif %}
             {% for i in all_tasks %}
-                {% if i.is_archived == False %}
+                {% if i.is_archived == True %}
                     <div id="task">
                         <div class="actions">
                             <form action="/archiveItem/{{i.id}}/" method="post">{% csrf_token %}
