@@ -8,6 +8,7 @@
     --button-background: rgb(50, 133, 76);
     --text-color: rgb(239, 246, 252);
 
+    --faded-text: rgb(102, 99, 111);
     --border-curve: 12px;
     --button-curve: 10px;
     --small-button-curve: 5px;
@@ -23,8 +24,14 @@ h1 {
     font-size: 2em;
     user-select: none;
     margin-top: 0;
-    margin-bottom: 10vh;
+    margin-bottom: 8vh;
+    align-self: center;
     color: var(--green)
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 
 .content {
@@ -33,6 +40,14 @@ h1 {
     align-items: center;
     height: auto;
     margin: 0 auto;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    margin-bottom: 2vh;
+    align-items: center;
 }
 
 .input {
@@ -52,7 +67,7 @@ h1 {
     width: 20vw;
     justify-items: center;
     padding: 10px;
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
 
 }
 
@@ -71,15 +86,17 @@ h1 {
 }
 
 .actions {
-    margin: -20px -20px 10px auto;
+    opacity: 0;
+    width: 100%;
     padding: 0;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
 
-.actions input {
-    font-size: 1.2em;
+.actions .button {
+    border-radius: 0;
+    background-color: var(--note-green);
 }
 
 .button {
@@ -155,28 +172,21 @@ h1 {
     width: 20vw;
     max-height: 34vh;
     word-wrap: break-word;
-    padding-bottom: 10px;
     margin: 10px;
-    padding: 20px;
+    padding: 0;
     box-shadow: var(--shadow-color) 1px 3px 10px;
     overflow: hidden;
 }
 
-#task:hover #deleteButton {
+#task:hover .actions {
     opacity: 1;
 }
 
-#task p {
-    white-space:pre-line;
-    margin: 0;
-    padding: 0;
-}
-
 #taskText {
+    white-space:pre-line;
     overflow: hidden;
-    margin: 0;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    margin: 20px;
+    padding: 0;
 }
 
 #task .button {
@@ -188,19 +198,17 @@ h1 {
     background-color: var(--button-background);
 }
 
-#deleteButton {
-    opacity: 0;
-    border: white 2px solid;
-    background-color: white;
-    color: var(--note-green);
-    align-self: flex-end;
-    padding: 0;
+#emptyArchText {
+    width: 100%;
+    color:var(--faded-text);
+    user-select: none;
+    text-align: center;
 }
 
 /* For Responsiveness */
 
-@media screen and (max-width: 860px) {
-
+/* Phones and Slim screens*/
+@media only screen and (max-width: 768px) {
     .textWrapper {
         width: 70vw;
         justify-items: center;
@@ -229,5 +237,23 @@ h1 {
     #addButton {
         font-size: 1.4em;
         margin-left: 10px;
+    }
+}
+
+/* Medium sized screens */
+@media only screen and (min-width: 768px) and (max-width: 1400px) {
+
+    .textWrapper {
+        width: 60vw;
+        justify-items: center;
+    }
+
+    .list {
+        max-width: 80vw;
+    }
+
+    #task {
+        min-width: 16vw;
+        max-width: 16vw;
     }
 }
