@@ -5,7 +5,6 @@ A simple note keeping app I made for studying Django and Python as a backend too
 ### What can it do?
 - Basic note taking
   - Creating, deleting and archiving notes (WIP)
-  - Image insertion (WIP)
 
 ### How to run it
 1. Clone this repository
@@ -13,3 +12,5 @@ A simple note keeping app I made for studying Django and Python as a backend too
 3. Start the server with `python manage.py runserver`
 
 NOTE: The project contains dependencies for deployment on Heroku, you can remove those if you just want to play around with it locally.
+
+Unicons by [Icon Scout](https://iconscout.com)
